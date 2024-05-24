@@ -1,6 +1,5 @@
 from random import choice, randint
 
-# Commands dictionary with lambda functions to handle dynamic responses
 commands = {
     'hello': lambda: 'Hello there!',
     'how are you': lambda: 'Good, thanks!!',
@@ -19,12 +18,12 @@ def get_response(user_input: str) -> str:
     if lowered == '!commands':
         return '\n'.join(commands.keys())
     
-    # Look for the command in the dictionary and call the corresponding lambda function
+   
     for command in commands:
         if command in lowered:
             return commands[command]()
     
-    # Default response if no command matches
+
     return choice(['Erm, what the sigma...'])
 
 
