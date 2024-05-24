@@ -3,7 +3,7 @@ from random import choice, randint
 # Commands dictionary with lambda functions to handle dynamic responses
 commands = {
     'hello': lambda: 'Hello there!',
-    'how are you': lambda: 'Good, thanks!',
+    'how are you': lambda: 'Good, thanks!!',
     'bye': lambda: 'See you!',
     'roll dice': lambda: f'You rolled: {randint(1, 6)}'
 }

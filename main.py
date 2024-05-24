@@ -17,7 +17,7 @@ client: Client = Client(intents=intents)
 # STEP 2: MESSAGE FUNCTIONALITY
 async def send_message(message: Message, user_message: str) -> None:
     if not user_message:
-        print('(Message was empty because intents were not enabled probably)')
+        print('(Message was empty because intents were not enabledprobably)')
         return
 
     if is_private := user_message[0] == '?':
