@@ -24,6 +24,6 @@ def get_response(user_input: str) -> str:
             return commands[command]()
     
 
-    return choice(['Erm, what the sigma...'])
+    return choice(['Erm, what the sigma....'])
 
 

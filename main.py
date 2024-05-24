@@ -36,7 +36,7 @@ async def on_ready() -> None:
     print(f'{client.user} is now running!')
 
 
-# STEP 4: HANDLING INCOMING MESSAGES
+# STEP 4: HANDLING INCOMING  MESSAGES
 @client.event
 async def on_message(message: Message) -> None:
     if message.author == client.user:

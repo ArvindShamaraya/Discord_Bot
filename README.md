@@ -1,2 +1,2 @@
 # discord_bot
-# discord chat bot
+# a discord chat bot
