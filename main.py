@@ -8,10 +8,11 @@ from responses import get_response
 import asyncio
 import json
 
-
 # STEP 0: LOAD OUR TOKEN FROM .env FILE
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+
+ZOOBA = os.getenv('ZOOBA')
 
 def load_channels(file_path):
     with open(file_path, "r") as f:
@@ -30,8 +31,8 @@ async def send_message(message: Message, user_message: str) -> None:
         return
 
     # Check if it's a weather query
-    if user_message.startswith("<@1243026767128559616> !weather "):
-        city = user_message[len("<@1243026767128559616> !weather "):].strip()  # Extract city name
+    if user_message.startswith(f"{ZOOBA} !weather "):
+        city = user_message[len(f"{ZOOBA} !weather "):].strip()  # Extract city name
         weather_response = get_weather(city)
         await message.channel.send(weather_response)
         return
@@ -40,7 +41,6 @@ async def send_message(message: Message, user_message: str) -> None:
         await message.channel.send(response)
     except Exception as e:
         print(e)
-
 
 async def print_eh():
     channel_id = channel_dict["eh"]  # Default to ehchannelID if not found
@@ -53,7 +53,7 @@ async def print_eh():
         await asyncio.sleep(43200)  # Wait 12 hours before sending again
 
 async def send_image():
-    mushGenID = 767927083858919505
+    mushGenID = channel_dict["mushGen"]  # Default to mushGenID if not found
     await client.wait_until_ready()  # Wait until the bot is ready
     channel = client.get_channel(mushGenID)  # Get the channel by ID
     image_path = "/Users/arvindshamaraya/Downloads/awkID.jpeg"
@@ -65,7 +65,7 @@ async def send_image():
 async def on_ready() -> None:
     print(f'{client.user} is now running!')
     asyncio.create_task(print_eh())  # Start background task
-    #asyncio.create_task(send_image()) #uh just for testing
+    # asyncio.create_task(send_image())  # Uncomment for testing image send
 
 # STEP 4: HANDLING INCOMING MESSAGES
 @client.event

@@ -1,4 +1,9 @@
 from random import choice, randint
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+ZOOBA = os.getenv('ZOOBA')
 
 commands = {
     'hello': lambda: 'Hello there!',
@@ -8,7 +13,7 @@ commands = {
 }
 
 def get_response(user_input: str) -> str:
-    bot_id = '<@1243026767128559616>'
+    bot_id = ZOOBA
     
     if not user_input.startswith(bot_id):
         return '' #will return an error 404 if the message is empy
