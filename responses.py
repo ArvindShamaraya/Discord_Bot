@@ -11,7 +11,7 @@ def get_response(user_input: str) -> str:
     bot_id = '<@1243026767128559616>'
     
     if not user_input.startswith(bot_id):
-        return ''
+        return '' #will return an error 404 if the message is empy
     
     lowered: str = user_input[len(bot_id):].strip().lower()
     
